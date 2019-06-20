@@ -6,6 +6,15 @@
 
 int main()
 {
+    /*
+    Segundo o exemplo do professor
+    A = 0
+    B = 1
+    C = 2
+    D = 3
+    E = 4
+    */
+
   Grafo g;
   cria_grafo(&g,5);
   adiciona_aresta(&g,0,1,10);
