@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "grafo.h"
+#define INFINIT 2147483647;
+
 
 int main()
 {
-    printf("Hello world!\n");
-    return 0;
+
 }
