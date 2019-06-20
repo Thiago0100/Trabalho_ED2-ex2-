@@ -16,9 +16,9 @@ void cria_grafo(Grafo* g, int vertices)
     g->total_vertices = vertices;
     g->peso = INFINIT;
 
-     for (i = 0; i < g->total_vertices; i++)
+    for (i = 0; i < g->total_vertices; i++)
         for (j = 0; j < g->total_vertices; j++)
-             g->mat[i][j] = INFINIT;
+            g->mat[i][j] = INFINIT;
 
 
 }
@@ -40,6 +40,7 @@ void destroi(Grafo *g)
 void melhor_caminho(Grafo *g)
 {
     int rota = g->peso,i,j;
+    int v1, v2;
 
     //Pega o peso do primeiro vértice
 
@@ -50,9 +51,14 @@ void melhor_caminho(Grafo *g)
             if(g->mat[i][j] != INFINIT && g->mat[i][j] < rota)
             {
                 rota = g->mat[i][j];
-                printf ("\nCaminho[%d][%d] peso %d\n", i, j,g->mat[i][j]);
-
+                v1 = i;
+                v2 = j;
             }
+        }
+        if (rota != g->peso)
+        {
+            printf ("\nCaminho[%d][%d] peso %d\n", v1, v2,rota);
+            rota = g->peso;
         }
 
     }
