@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "grafo.h"
+#define MAX 10
 
 
 
@@ -14,7 +15,7 @@ int main()
     D = 3
     E = 4
     */
-
+/*
   Grafo g;
   cria_grafo(&g,5);
   adiciona_aresta(&g,0,1,10);
@@ -29,7 +30,20 @@ int main()
   adiciona_aresta(&g,3,4,23);
   adiciona_aresta(&g,4,0,6);
 
-  dijkstra(&g,5,0);
+  */
+
+  int G[MAX][MAX],i,j,n,u;
+  printf("Enter no. of vertices:");
+  scanf("%d",&n);
+  printf("\nInsira a matriz adjacente:\n");
+
+  for(i=0;i<n;i++)
+    for(j=0;j<n;j++)
+        scanf("%d",&G[i][j]);
+  printf("\nInsira o no inicial: ");
+  scanf("%d",&u);
+  dijkstra(G,n,u);
+  return 0;
 
 
 }

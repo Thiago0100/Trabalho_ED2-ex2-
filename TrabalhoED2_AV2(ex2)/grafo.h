@@ -1,6 +1,6 @@
 #ifndef GRAFO_H_INCLUDED
 #define GRAFO_H_INCLUDED
-#define INFINIT 2147483647
+#define MAX 10
 
 typedef struct grafo {
   int total_vertices;      /* Número de vertices*/
@@ -13,7 +13,7 @@ void adiciona_aresta(Grafo *g, int vertice1, int vertice2, int peso);
 void destroi(Grafo *g);
 void melhor_caminho(Grafo *g);
 void imprime_grafo(Grafo *g);
-void dijkstra(Grafo *g,int n,int startnode);
+void dijkstra(int G[MAX][MAX],int n,int startnode);
 
 
 #endif // GRAFO_H_INCLUDED
