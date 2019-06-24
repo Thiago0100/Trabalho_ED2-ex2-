@@ -18,7 +18,7 @@ void cria_grafo(Grafo* g, int vertices)
 
     for (i = 0; i < g->total_vertices; i++)
         for (j = 0; j < g->total_vertices; j++)
-            g->mat[i][j] = INFINIT;
+            g->mat[i][j] = 0;
 
 
 }
@@ -81,27 +81,26 @@ void imprime_grafo(Grafo *g)
 void dijkstra(Grafo *g,int n,int startnode)
 {
 
-	int distance[n],pred[n];
+	int distance[n],pred[n],cost[n][n];
 	int visited[n],count,mindistance,nextnode,i,j;
 
-	Grafo cost = *g;
 
 	//pred[] stores the predecessor of each node
 	//count gives the number of nodes seen so far
 	//create the cost matrix
-	/*
+
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
-			if(G[i][j]==0)
-				cost[i][j]=INFINITY;
+			if(g->mat[i][j]==0)
+				cost[i][j]=INFINIT;
 			else
-				cost[i][j]=G[i][j];
-				*/
+				cost[i][j]=g->mat[i][j];
+
 
 	//initialize pred[],distance[] and visited[]
 	for(i=0;i<n;i++)
 	{
-		distance[i]=cost.mat[startnode][i];
+		distance[i]=cost[startnode][i];
 		pred[i]=startnode;
 		visited[i]=0;
 	}
@@ -126,9 +125,9 @@ void dijkstra(Grafo *g,int n,int startnode)
 			visited[nextnode]=1;
 			for(i=0;i<n;i++)
 				if(!visited[i])
-					if(mindistance+cost.mat[nextnode][i]<distance[i])
+					if(mindistance+cost[nextnode][i]<distance[i])
 					{
-						distance[i]=mindistance+cost.mat[nextnode][i];
+						distance[i]=mindistance+cost[nextnode][i];
 						pred[i]=nextnode;
 					}
 		count++;

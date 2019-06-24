@@ -29,7 +29,7 @@ int main()
   adiciona_aresta(&g,3,4,23);
   adiciona_aresta(&g,4,0,6);
 
-  dijkstra(&g,5,3);
+  dijkstra(&g,5,0);
 
 
 }
