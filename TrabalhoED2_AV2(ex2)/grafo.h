@@ -12,7 +12,8 @@ void cria_grafo(Grafo* g, int vertices);
 void adiciona_aresta(Grafo *g, int vertice1, int vertice2, int peso);
 void destroi(Grafo *g);
 void melhor_caminho(Grafo *g);
-//void imprime_grafo(Grafo *g);
+void imprime_grafo(Grafo *g);
+void dijkstra(Grafo *g,int n,int startnode);
 
 
 #endif // GRAFO_H_INCLUDED

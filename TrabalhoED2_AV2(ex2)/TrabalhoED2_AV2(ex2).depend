@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1561072653 source:c:\users\usuario\documents\github\trabalho_ed2-ex2-\trabalhoed2_av2(ex2)\main.c
+1561074731 source:c:\users\usuario\documents\github\trabalho_ed2-ex2-\trabalhoed2_av2(ex2)\main.c
 	<stdio.h>
 	<stdlib.h>
 	"grafo.h"
 
-1561069792 c:\users\usuario\documents\github\trabalho_ed2-ex2-\trabalhoed2_av2(ex2)\grafo.h
+1561295415 c:\users\usuario\documents\github\trabalho_ed2-ex2-\trabalhoed2_av2(ex2)\grafo.h
 
-1561072939 source:c:\users\usuario\documents\github\trabalho_ed2-ex2-\trabalhoed2_av2(ex2)\grafo.c
+1561295389 source:c:\users\usuario\documents\github\trabalho_ed2-ex2-\trabalhoed2_av2(ex2)\grafo.c
 	<stdio.h>
 	<stdlib.h>
 	"grafo.h"
