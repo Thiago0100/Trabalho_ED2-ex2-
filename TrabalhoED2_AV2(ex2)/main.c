@@ -5,15 +5,6 @@
 
 void main()
 {
-        /*
-        Segundo o exemplo do professor
-        A = 0
-        B = 1
-        C = 2
-        D = 3
-        E = 4
-        */
-
       FILE *arquivo;
       int valor;
       int G[MAX][MAX],i,j,n,u;
@@ -27,11 +18,11 @@ void main()
           exit(EXIT_FAILURE);
       }
 
+      //número de vértices
       fscanf(arquivo, "%d",&n);
 
+      //vértice inicial
       fscanf(arquivo, "%d",&u);
-
-      fflush(stdin);
 
       printf("\nQuantidade de vertices: %d\n", n);
       printf("\nVertice inicial: %d\n", u);
