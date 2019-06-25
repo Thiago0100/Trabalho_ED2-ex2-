@@ -49,7 +49,7 @@ void main()
 
       fflush(stdin);
 
-      printf("\nQuantiddade de vertices: %d\n", n);
+      printf("\nQuantidade de vertices: %d\n", n);
       printf("\nVertice inicial: %d\n", u);
 
       printf("\nMatriz Adjacente:\n");
@@ -77,5 +77,6 @@ void main()
 
 
       //fflush(stdin);
-      //dijkstra(G,n,u);
+      printf("\n\n ----------------------- Melhor caminho ---------------------- \n");
+      dijkstra(G,n,u);
 }
