@@ -28,21 +28,11 @@ void main()
   adiciona_aresta(&g,3,4,23);
   adiciona_aresta(&g,4,0,6);
 
-  */
 
+*/
       FILE *arquivo;
-      char ch, file_name[25];
       int valor;
       int G[MAX][MAX],i,j,n,u;
-
-
-      printf("\nInsira o no inicial: ");
-      scanf("%d",&u);
-      printf("Enter no. of vertices:");
-      scanf("%d",&n);
-      fflush(stdin);
-
-      printf("\nInserindo a matriz adjacente:\n");
 
       arquivo = fopen("matriz.txt", "r"); // read mode
 
@@ -53,6 +43,17 @@ void main()
           exit(EXIT_FAILURE);
       }
 
+      fscanf(arquivo, "%d",&n);
+
+      fscanf(arquivo, "%d",&u);
+
+      fflush(stdin);
+
+      printf("\nQuantiddade de vertices: %d\n", n);
+      printf("\nVertice inicial: %d\n", u);
+
+      printf("\nMatriz Adjacente:\n");
+
       for(i=0;i<n;i++)
       {
         for(j=0;j<n;j++)
@@ -60,36 +61,21 @@ void main()
             fscanf(arquivo, "%d", &G[i][j]);
         }
       }
-  //gets(file_name);
 
+      fclose(arquivo);
 
-  //if(fscanf(arquivo, "%s", &file_name) == "Matriz Adjacente:" || fgets(file_name, 25, arquivo) == "Matriz Adjacente")
-/*
-      while(fgetc(arquivo) != EOF)
-      {
-          fscanf(arquivo, "%d", &valor);
-          printf("%d ", valor);
-      }
-*/
-/*
-  while((valor = (int)fgetc(arquivo)) != EOF)
-  {
-        fscanf(arquivo, "%d", &valor);
-        printf("%d ", valor);
-  }
-*/
 
       for(i=0;i<n;i++)
       {
           printf("\n");
-        for(j=0;j<n;j++)
-        {
-            printf("%d ", G[i][j]);
-        }
+          for(j=0;j<n;j++)
+          {
+              printf("%d ", G[i][j]);
+          }
       }
 
 
-      fflush(stdin);
+
+      //fflush(stdin);
       //dijkstra(G,n,u);
-      fclose(arquivo);
 }
