@@ -35,11 +35,13 @@ int main()
   int G[MAX][MAX],i,j,n,u;
   printf("Enter no. of vertices:");
   scanf("%d",&n);
+  fflush(stdin);
   printf("\nInsira a matriz adjacente:\n");
 
   for(i=0;i<n;i++)
     for(j=0;j<n;j++)
         scanf("%d",&G[i][j]);
+    fflush(stdin);
   printf("\nInsira o no inicial: ");
   scanf("%d",&u);
   dijkstra(G,n,u);

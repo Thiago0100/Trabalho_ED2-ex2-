@@ -5,15 +5,15 @@
 #define MAX 10
 
 
-void dijkstra(int G[MAX][MAX],int n,int startnode)
+void dijkstra(int G[MAX][MAX],int n,int no_inicial)
 {
 
-	int cost[MAX][MAX],distance[MAX],pred[MAX];
-	int visited[MAX],count,mindistance,nextnode,i,j;
+	int cost[MAX][MAX],distancia[MAX],anterior[MAX];
+	int visitado[MAX],count,mindistance,proximo_no,i,j;
 
-	//pred[] stores the predecessor of each node
-	//count gives the number of nodes seen so far
-	//create the cost matrix
+	//anterior[] armazena o vertice anterior
+	//count dá o número de nós vistos até o momento
+
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			if(G[i][j]==0)
@@ -21,55 +21,55 @@ void dijkstra(int G[MAX][MAX],int n,int startnode)
 			else
 				cost[i][j]=G[i][j];
 
-	//initialize pred[],distance[] and visited[]
+	//Inicializa os vetores
 	for(i=0;i<n;i++)
 	{
-		distance[i]=cost[startnode][i];
-		pred[i]=startnode;
-		visited[i]=0;
+		distancia[i]=cost[no_inicial][i];
+		anterior[i]=no_inicial;
+		visitado[i]=0;
 	}
 
-	distance[startnode]=0;
-	visited[startnode]=1;
+	distancia[no_inicial]=0;
+	visitado[no_inicial]=1;
 	count=1;
 
 	while(count<n-1)
 	{
 		mindistance=INFINITY;
 
-		//nextnode gives the node at minimum distance
+		//pega a distância mínima para o próximo vértice
 		for(i=0;i<n;i++)
-			if(distance[i]<mindistance&&!visited[i])
+			if(distancia[i]<mindistance&&!visitado[i])
 			{
-				mindistance=distance[i];
-				nextnode=i;
+				mindistance=distancia[i];
+				proximo_no=i;
 			}
 
-			//check if a better path exists through nextnode
-			visited[nextnode]=1;
+			//verifica se existe melhor caminho entre os vértices
+			visitado[proximo_no]=1;
 			for(i=0;i<n;i++)
-				if(!visited[i])
-					if(mindistance+cost[nextnode][i]<distance[i])
+				if(!visitado[i])
+					if(mindistance+cost[proximo_no][i]<distancia[i])
 					{
-						distance[i]=mindistance+cost[nextnode][i];
-						pred[i]=nextnode;
+						distancia[i]=mindistance+cost[proximo_no][i];
+						anterior[i]=proximo_no;
 					}
 		count++;
 	}
 
-	//print the path and distance of each node
+	//imprime o caminho e a distância entre cada vértice
 	for(i=0;i<n;i++)
-		if(i!=startnode)
+		if(i!=no_inicial)
 		{
-			printf("\nDistance of node%d=%d",i,distance[i]);
-			printf("\nPath=%d",i);
+			printf("\nDistancia do vertice %d = %d",i,distancia[i]);
+			printf("\nCaminho %d",i);
 
 			j=i;
 			do
 			{
-				j=pred[j];
+				j=anterior[j];
 				printf("<-%d",j);
-			}while(j!=startnode);
+			}while(j!=no_inicial);
 	}
 }
 
