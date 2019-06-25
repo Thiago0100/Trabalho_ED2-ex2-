@@ -3,9 +3,7 @@
 #include "grafo.h"
 #define MAX 10
 
-
-
-int main()
+void main()
 {
     /*
     Segundo o exemplo do professor
@@ -32,20 +30,66 @@ int main()
 
   */
 
-  int G[MAX][MAX],i,j,n,u;
-  printf("Enter no. of vertices:");
-  scanf("%d",&n);
-  fflush(stdin);
-  printf("\nInsira a matriz adjacente:\n");
-
-  for(i=0;i<n;i++)
-    for(j=0;j<n;j++)
-        scanf("%d",&G[i][j]);
-    fflush(stdin);
-  printf("\nInsira o no inicial: ");
-  scanf("%d",&u);
-  dijkstra(G,n,u);
-  return 0;
+      FILE *arquivo;
+      char ch, file_name[25];
+      int valor;
+      int G[MAX][MAX],i,j,n,u;
 
 
+      printf("\nInsira o no inicial: ");
+      scanf("%d",&u);
+      printf("Enter no. of vertices:");
+      scanf("%d",&n);
+      fflush(stdin);
+
+      printf("\nInserindo a matriz adjacente:\n");
+
+      arquivo = fopen("matriz.txt", "r"); // read mode
+
+      if (arquivo == NULL)
+      {
+          perror("\nErro ao tentar abrir o arquivo.\n");
+          system("pause");
+          exit(EXIT_FAILURE);
+      }
+
+      for(i=0;i<n;i++)
+      {
+        for(j=0;j<n;j++)
+        {
+            fscanf(arquivo, "%d", &G[i][j]);
+        }
+      }
+  //gets(file_name);
+
+
+  //if(fscanf(arquivo, "%s", &file_name) == "Matriz Adjacente:" || fgets(file_name, 25, arquivo) == "Matriz Adjacente")
+/*
+      while(fgetc(arquivo) != EOF)
+      {
+          fscanf(arquivo, "%d", &valor);
+          printf("%d ", valor);
+      }
+*/
+/*
+  while((valor = (int)fgetc(arquivo)) != EOF)
+  {
+        fscanf(arquivo, "%d", &valor);
+        printf("%d ", valor);
+  }
+*/
+
+      for(i=0;i<n;i++)
+      {
+          printf("\n");
+        for(j=0;j<n;j++)
+        {
+            printf("%d ", G[i][j]);
+        }
+      }
+
+
+      fflush(stdin);
+      //dijkstra(G,n,u);
+      fclose(arquivo);
 }
