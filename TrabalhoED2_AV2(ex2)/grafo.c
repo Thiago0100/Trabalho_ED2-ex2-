@@ -62,7 +62,7 @@ void dijkstra(int G[MAX][MAX],int n,int no_inicial)
 		if(i!=no_inicial)
 		{
 			printf("\nDistancia do vertice %d = %d",i,distancia[i]);
-			printf("\nCaminho %d",i);
+			printf("\nCaminho: %d",i);
 
 			j=i;
 			do
@@ -71,6 +71,8 @@ void dijkstra(int G[MAX][MAX],int n,int no_inicial)
 				printf("<-%d",j);
 			}while(j!=no_inicial);
 	}
+
+	printf("\n\n\n");
 }
 
 
@@ -94,47 +96,6 @@ void cria_grafo(Grafo* g, int vertices)
 
 }
 
-void adiciona_aresta(Grafo *g, int vertice1, int vertice2, int peso)
-{
-    g->mat[vertice1][vertice2] = peso;
-
-}
-
-void destroi(Grafo *g)
-{
-    int i;
-    for (i = 0; i < g->total_vertices; i++)
-        free(g->mat[i]);
-    free(g->mat);
-}
-
-void melhor_caminho(Grafo *g)
-{
-    int rota = g->peso,i,j;
-    int v1, v2;
-
-    //Pega o peso do primeiro vértice
-
-    for (i = 0; i < g->total_vertices; i++)
-    {
-        for (j = 0; j < g->total_vertices; j++)
-        {
-            if(g->mat[i][j] != INFINITY && g->mat[i][j] < rota)
-            {
-                rota = g->mat[i][j];
-                v1 = i;
-                v2 = j;
-            }
-        }
-        if (rota != g->peso)
-        {
-            printf ("\nCaminho[%d][%d] peso %d\n", v1, v2,rota);
-            rota = g->peso;
-        }
-
-    }
-
-}
 void imprime_grafo(Grafo *g)
 {
     int i,j;
@@ -148,6 +109,3 @@ void imprime_grafo(Grafo *g)
         }
 
 }
-
-
-
